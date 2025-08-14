@@ -22,8 +22,26 @@ uv sync
 uv add <package_name>
 ```
 
+### Code Quality
+```bash
+# Format code with Black and sort imports
+./scripts/format.sh
+
+# Check code quality (dry-run)
+./scripts/check.sh
+
+# Run tests with quality checks
+./scripts/test.sh
+
+# Install pre-commit hooks
+uv run pre-commit install
+
+# Run pre-commit on all files
+uv run pre-commit run --all-files
+```
+
 ### Environment Setup
-- Requires `.env` file with `ANTHROPIC_API_KEY` 
+- Requires `.env` file with `ANTHROPIC_API_KEY`
 - Application runs on port 8000 by default
 - Access: http://localhost:8000 (web UI) and http://localhost:8000/docs (API docs)
 
@@ -34,7 +52,7 @@ This is a **Retrieval-Augmented Generation (RAG) system** for course materials w
 
 1. **RAGSystem** (`rag_system.py`) - Main orchestrator that coordinates all components
 2. **DocumentProcessor** (`document_processor.py`) - Parses course files with specific format expectations
-3. **VectorStore** (`vector_store.py`) - ChromaDB integration for semantic search 
+3. **VectorStore** (`vector_store.py`) - ChromaDB integration for semantic search
 4. **AIGenerator** (`ai_generator.py`) - Claude API integration with tool-calling capabilities
 5. **SessionManager** (`session_manager.py`) - Conversation history management
 
@@ -45,7 +63,7 @@ This is a **Retrieval-Augmented Generation (RAG) system** for course materials w
 
 ### Key Configuration
 All settings centralized in `config.py`:
-- **AI Model**: `claude-sonnet-4-20250514` 
+- **AI Model**: `claude-sonnet-4-20250514`
 - **Embedding Model**: `all-MiniLM-L6-v2`
 - **Chunk Parameters**: 800 chars with 100 overlap
 - **Search Limits**: 5 max results, 2 conversation history turns
@@ -77,7 +95,7 @@ The ChromaDB vector store maintains two specialized collections:
 - **Tool Calling**: AIGenerator handles Claude's tool-calling protocol
 - Search results integrated into response generation context
 
-### Frontend Integration  
+### Frontend Integration
 - FastAPI backend with CORS enabled
 - Static file serving for frontend assets
 - RESTful API endpoints: `/api/query` and `/api/courses`
