@@ -245,6 +245,53 @@ header h1 {
     color: var(--text-secondary);
 }
 
+.source-link {
+    display: inline-block;
+    background: var(--surface-hover);
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    margin: 0.2rem 0.3rem 0.2rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.source-link:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+    text-decoration: none;
+}
+
+.source-link:visited {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+}
+
+.source-link:visited:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.source-link:active {
+    transform: translateY(0);
+}
+
+/* Add an external link icon */
+.source-link::after {
+    content: "↗";
+    margin-left: 0.4rem;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
 /* Markdown formatting styles */
 .message-content h1,
 .message-content h2,
@@ -599,6 +646,32 @@ details[open] .suggested-header::before {
     color: var(--text-secondary);
     font-style: italic;
     text-transform: none;
+}
+
+/* New Chat Button */
+.new-chat-button {
+    width: 100%;
+    padding: 0.5rem 0;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    outline: none;
+    list-style: none;
+}
+
+.new-chat-button:focus {
+    color: var(--primary-color);
+}
+
+.new-chat-button:hover {
+    color: var(--primary-color);
 }
 
 /* Suggested Questions in Sidebar */
