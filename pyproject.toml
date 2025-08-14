@@ -1,7 +1,7 @@
 [project]
-name = "starting-codebase"
+name = "rag-chatbot"
 version = "0.1.0"
-description = "Add your description here"
+description = "RAG-powered chatbot for course materials"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -13,4 +13,45 @@ dependencies = [
     "python-multipart==0.0.20",
     "python-dotenv==1.1.1",
     "pytest>=8.4.1",
+    "black>=25.1.0",
+    "isort>=6.0.1",
+    "flake8>=7.3.0",
+    "pre-commit>=4.3.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["backend"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503", "E501"]
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "dist",
+    "build",
+    "*.egg-info"
 ]
